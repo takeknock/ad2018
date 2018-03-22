@@ -113,10 +113,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DualNumber.h" />
+    <ClInclude Include="dual_number.h" />
+    <ClInclude Include="functions.h" />
     <ClInclude Include="macro.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DualNumber.cpp" />
+    <ClCompile Include="functions.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

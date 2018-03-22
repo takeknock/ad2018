@@ -114,16 +114,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="functions.h" />
     <ClInclude Include="distribution.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="functions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ad\ad.vcxproj">
       <Project>{9eb9eb7c-a518-4d9f-9bc6-f6411a51b2cb}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="distribution.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,33 +4,40 @@
 #include <cmath>
 
 #include "ad/DualNumber.h"
+#include "ad/dual_number.h"
+
+#include "ad/macro.h"
 
 
 namespace math {
     namespace distribution {
         class Normal {
         public:
-            double cdf(const double x, const double mean, const double volatility)
-            {
-                return 0.5 * (1.0 + std::erf((x - mean) / (std::sqrt(2.0) * volatility)));
-            }
-
+            MATH_API double cdf(const double x, const double mean, const double volatility);
         };
 
         class StandardNormal {
         public:
-            double cdf(const double x)
-            {
-                Normal d = Normal();
-                return d.cdf(x, 0.0, 1.0);
-            }
+            MATH_API double cdf(const double x);
 
-            ad::DualNumber cdf(ad::DualNumber& x)
+            MATH_API double pdf(const double x);
+
+            MATH_API ad::DualNumber cdf(ad::DualNumber& x);
+
+            template<int DIM>
+            ad::dual_number<DIM> cdf(ad::dual_number<DIM>& x)
             {
-                ad::DualNumber s = ad::DualNumber(
-                    cdf(x.getValue()),
-                    1.0 / std::sqrt(2.0 * M_PI) * std::exp(-x.getValue() * x.getValue() / 2.0) * x.getDerivative());
-                return ad::DualNumber(s);
+                std::array<double, DIM> derivatives = x.getDerivatives();
+                //std::for_each(derivatives.begin(), derivatives.end(),
+                //    [this, x](double derivative) { return pdf(x.getValue()) * derivative; });
+                //std::transform(derivatives.begin(), derivatives.end(),
+                //    std::back_inserter(derivatives),
+                //    [this, x](double derivative) { return pdf(x.getValue()) * derivative; });
+                for (std::size_t i = 0; i < DIM; ++i) {
+                    derivatives[i] = pdf(x.getValue()) * derivatives[i];
+                }
+
+                return ad::dual_number<DIM>(cdf(x.getValue()), derivatives);
             }
         };
 

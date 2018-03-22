@@ -39,7 +39,7 @@ namespace ad {
     }
     DualNumber& DualNumber::operator/=(const DualNumber& rhs)
     {
-        assert(rhs.getValue() - 0.0 > std::numeric_limits<double>::epsilon());
+        assert(rhs.getValue() > std::numeric_limits<double>::epsilon());
         const double rhsValue = rhs.getValue();
         const double tempE = _e;
         _e /= rhsValue;
