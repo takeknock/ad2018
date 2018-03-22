@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="dual.h">
+    <ClInclude Include="macro.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="macro.h">
+    <ClInclude Include="DualNumber.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dual.cpp">
+    <ClCompile Include="DualNumber.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

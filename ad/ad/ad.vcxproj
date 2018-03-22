@@ -112,11 +112,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="dual.h" />
+    <ClInclude Include="DualNumber.h" />
     <ClInclude Include="macro.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dual.cpp" />
+    <ClCompile Include="DualNumber.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
