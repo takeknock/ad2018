@@ -21,7 +21,7 @@ double black(
     return spot * d.cdf(d1) - strike * discountFactor * d.cdf(d2);
 }
 
-ad::DualNumber blackV(
+ad::DualNumber black(
     ad::DualNumber& interestRate,
     ad::DualNumber& volatility,
     ad::DualNumber& maturity,
@@ -76,7 +76,7 @@ int main(){
     const double expected = black(interestRate, volatility, maturity, spot, strike);
     std::cout << "Expected PV: " << expected << std::endl;
 
-    ad::DualNumber pv = blackV(interestRateV, volatilityV, maturityV, spotV, strikeV);
+    ad::DualNumber pv = black(interestRateV, volatilityV, maturityV, spotV, strikeV);
     std::cout << "Actual PV: " << pv.getValue() << std::endl;
 
     const double expectedDelta = blackDelta(interestRate, volatility, maturity, spot, strike);
