@@ -12,3 +12,8 @@
     #define MATH_API __declspec(dllimport)
 #endif
 
+#ifdef FE_EXPORT
+    #define FE_API __declspec(dllexport)
+#else
+    #define FE_API __declspec(dllimport)
+#endif

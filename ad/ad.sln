@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ad", "ad\ad.vcxproj", "{9EB9EB7C-A518-4D9F-9BC6-F6411A51B2CB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "main", "main\main.vcxproj", "{700513B9-45B5-4002-8C2C-262BD7E6D89D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "math", "math\math.vcxproj", "{C1B57D11-36B2-4CE8-8B1B-1F5D75D8782F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "finance", "finance\finance.vcxproj", "{171E9303-F34C-4AAA-BAE4-293F64DB3FFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,14 @@ Global
 		{C1B57D11-36B2-4CE8-8B1B-1F5D75D8782F}.Release|x64.Build.0 = Release|x64
 		{C1B57D11-36B2-4CE8-8B1B-1F5D75D8782F}.Release|x86.ActiveCfg = Release|Win32
 		{C1B57D11-36B2-4CE8-8B1B-1F5D75D8782F}.Release|x86.Build.0 = Release|Win32
+		{171E9303-F34C-4AAA-BAE4-293F64DB3FFD}.Debug|x64.ActiveCfg = Debug|x64
+		{171E9303-F34C-4AAA-BAE4-293F64DB3FFD}.Debug|x64.Build.0 = Debug|x64
+		{171E9303-F34C-4AAA-BAE4-293F64DB3FFD}.Debug|x86.ActiveCfg = Debug|Win32
+		{171E9303-F34C-4AAA-BAE4-293F64DB3FFD}.Debug|x86.Build.0 = Debug|Win32
+		{171E9303-F34C-4AAA-BAE4-293F64DB3FFD}.Release|x64.ActiveCfg = Release|x64
+		{171E9303-F34C-4AAA-BAE4-293F64DB3FFD}.Release|x64.Build.0 = Release|x64
+		{171E9303-F34C-4AAA-BAE4-293F64DB3FFD}.Release|x86.ActiveCfg = Release|Win32
+		{171E9303-F34C-4AAA-BAE4-293F64DB3FFD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
