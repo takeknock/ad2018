@@ -1,3 +1,5 @@
+
+#include <random>
 #include <iostream>
 #include <cassert>
 #include "math/distribution.h"
@@ -79,9 +81,51 @@ void testMultivarivateDual() {
     std::cout << "Actual Vega: " << pv.getDerivatives()[1] << std::endl;
 }
 
+void testMonteCarlo()
+{
+    const double interestRate = 0.01;
+    const double volatility = 0.1;
+    const double maturity = 10.0;
+    const double spot = 110.0;
+    const double strike = 100.0;
+    
+    // MC‚Í‚Ç‚±‚©‚ç‘‚«Žn‚ß‚ê‚Î‚æ‚¢‚©H
+    const std::size_t numberOfSteps = 100;
+    const std::size_t numberOfPaths = 100000;
+
+    const double dt = maturity / numberOfSteps;
+    const int seed = 100;
+    std::mt19937 engine(seed);
+    const double mean = 0.0;
+    const double volatilityOfRandomness = 1.0;
+    std::normal_distribution<> dist(mean, volatilityOfRandomness);
+    double payoff = 0.0;
+    for (std::size_t pathIndex = 0; pathIndex < numberOfPaths; ++pathIndex) {
+        
+        double this_spot = spot;
+
+        for (std::size_t stepIndex = 0; stepIndex < numberOfSteps; ++stepIndex) {
+            const double randomness = dist(engine);
+            this_spot += interestRate * this_spot * dt + volatility * this_spot * randomness;
+            //std::cout << this_spot << std::endl;
+            //this_spot *= std::exp((interestRate - 0.5 * volatility * volatility)
+            //    * dt + volatility * std::sqrt(dt) * randomness);
+        }
+        payoff += std::max(this_spot - strike, 0.0);
+        std::cout << payoff << std::endl;
+    }
+    const double discountFactor = std::exp(-interestRate * maturity);
+    const double presentValue = payoff / static_cast<double>(numberOfPaths) * discountFactor;
+    const double expected = fe::black(interestRate, volatility, maturity, spot, strike);
+    std::cout << "Expected Pv: " << expected << std::endl;
+    std::cout << "Actual Pv: " << presentValue << std::endl;
+}
+
 int main(){
     //testBlack();
-    testMultivarivateDual();
+    //testMultivarivateDual();
+    testMonteCarlo();
+
     int xxx = 0;
     std::cin >> xxx;
 
