@@ -11,15 +11,18 @@
 #else
     #define MATH_API __declspec(dllimport)
 #endif
-#ifdef FE_EXPORT
-#define FE_API __declspec(dllexport)
-#else
-#define FE_API __declspec(dllimport)
-#endif
 
+<<<<<<< HEAD
 #ifdef DS_EXPORT
-#define DS_API __declspec(dllexport)
+    #define DS_API __declspec(dllexport)
 #else
-#define DS_API __declspec(dllimport)
+    #define DS_API __declspec(dllimport)
 #endif
 
+=======
+#ifdef FE_EXPORT
+    #define FE_API __declspec(dllexport)
+#else
+    #define FE_API __declspec(dllimport)
+#endif
+>>>>>>> 05a5412671c61f8d5549ed7291d76f23af6e1efc
