@@ -36,7 +36,7 @@ void TestStack::testIsEmpty() {
 
 void TestStack::testIsFull() {
     ds::Stack<int> stack = ds::Stack<int>(5);
-    stack.push(1);
+    stack.push(1);  
     stack.push(1);
     stack.push(1);
     stack.push(1);

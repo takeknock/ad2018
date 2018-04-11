@@ -6,13 +6,16 @@ namespace ad {
     template<int DIM>
     class dual_number {
     public:
+        // constructor
         dual_number<DIM>(const double value);
         dual_number<DIM>(const dual_number<DIM>& rhs);
         dual_number<DIM>(const double value, const std::array<double, DIM> derivatives);
         dual_number<DIM>(dual_number<DIM>&& rhs) = default;
+        dual_number<DIM>(const double value, const std::size_t index);
+
+        // operators
         dual_number<DIM> operator =(const dual_number& rhs);
         dual_number<DIM>& operator =(dual_number<DIM>&& rhs) = default;
-        dual_number<DIM>(const double value, const std::size_t index);
         dual_number<DIM>& operator+=(const dual_number<DIM>& rhs);
         dual_number<DIM>& operator-=(const dual_number<DIM>& rhs);
         dual_number<DIM>& operator*=(const dual_number<DIM>& rhs);
@@ -30,7 +33,7 @@ namespace ad {
 
     private:
         double _e;
-        std::array<double, DIM> _derivatives = std::array<double, DIM>();
+        std::array<double, DIM> _derivatives;
     };
 
     template<int DIM>
